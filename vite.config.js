@@ -1,10 +1,20 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+      vue: path.resolve("./node_modules/vue"),
+    },
+  },
   server: {
-    port: 5000
+    port: 5000,
+    watch: {
+      usePolling: true,
+    },
   },
   plugins: [vue()],
-})
+});
