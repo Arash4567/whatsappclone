@@ -1,5 +1,17 @@
 <script setup>
+import axios from 'axios'
+const callback = async (response) => {
+  console.log(response);
+  try {
+    let res = await axios.post('http://localhost:4001/api/google-login', {
+      token: response.credential
+    })
 
+    console.log(res.data);
+  } catch (error) {
+    console.log(error);
+  }
+}
 </script>
 <template>
   <div class="w-full">
@@ -16,7 +28,7 @@
           WhatsApp Clone
         </div>
         <div class="w-full flex justify-center bg-[#191919] p-3 rounded-md">
-          <GoogleLogin />
+          <GoogleLogin :callback="callback" />
         </div>
       </div>
     </div>
