@@ -1,5 +1,8 @@
 <script setup>
 import DotsVerticalIcon from "vue-material-design-icons/DotsVertical.vue";
+import EmoticonExcitedOutlineIcon from "vue-material-design-icons/EmoticonExcitedOutline.vue";
+import PaperclipIcon from "vue-material-design-icons/Paperclip.vue";
+import SendIcon from "vue-material-design-icons/Send.vue";
 </script>
 <template>
   <div class="ml-[420px] w-full">
@@ -15,6 +18,37 @@ import DotsVerticalIcon from "vue-material-design-icons/DotsVertical.vue";
             </div>
           </div>
           <DotsVerticalIcon fillColor="#515151" />
+        </div>
+      </div>
+      <div id="MessagesSection"
+        class="pt-20 pb-8 z-[-1] h-[calc(100vh-65px)] w-[calc(100vw-420px)] overflow-auto fixed touch-auto">
+        <div class="px-20 text-sm">
+          <div class="flex w-[calc(100%-50px)]">
+            <div class="inline-block bg-white p-2 rounded-md my-1">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima aliquam vel ratione est sequi placeat
+              suscipit dignissimos culpa quod, impedit accusamus nisi aperiam, possimus omnis veniam numquam. Fugit,
+              voluptas molestias.
+            </div>
+          </div>
+          <div class="flex justify-end space-x-1 w-[calc(100%-50px)] float-right">
+            <div class="inline-block bg-green-200 p-2 rounded-md my-1">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima aliquam vel ratione est sequi placeat
+              suscipit dignissimos culpa quod, impedit accusamus nisi aperiam, possimus omnis veniam numquam. Fugit,
+              voluptas molestias.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-[calc(100vw-420px)] p-2.5 z-10 bg-[#F0F0F0] fixed bottom-0">
+        <div class="flex items-center justify-center">
+          <EmoticonExcitedOutlineIcon :size="27" fillColor="#515151" class="mx-1.5" />
+          <PaperclipIcon :size="27" fillColor="#515151" class="mx-1.5 mr-3" />
+          <input
+            class="mr-1 appearance-none w-full py-3 px-4 shadow text-gray-700 leading-tight focus:outline-none rounded-lg focus:shadow-outline placeholder:text-gray-500"
+            autocomplete="off" type="text" placeholder="Message" />
+          <button class="ml-3 p-2 w-12 items-center justify-center">
+            <SendIcon fillColor="#515151" />
+          </button>
         </div>
       </div>
     </div>
