@@ -7,6 +7,7 @@ import SendIcon from "vue-material-design-icons/Send.vue";
 <template>
   <div class="ml-[420px] w-full">
     <div class="w-full">
+      <div id="BG"></div>
       <div class="border-l border-green-500 w-full">
         <div class="bg-[#F0F0F0] fixed z-10 min-w-[calc(100vw-420px)] flex items-center justify-between p-2">
           <div class="flex items-center">
@@ -55,5 +56,12 @@ import SendIcon from "vue-material-design-icons/Send.vue";
   </div>
 </template>
 <style scoped>
-
+#BG {
+  background: url('/message-bg.png') no-repeat center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -1;
+}
 </style>

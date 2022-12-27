@@ -4,9 +4,11 @@ import AccountGroupIcon from "vue-material-design-icons/AccountGroup.vue";
 import DotsVerticalIcon from "vue-material-design-icons/DotsVertical.vue";
 import MagnifyIcon from "vue-material-design-icons/Magnify.vue";
 import ChatsView from './ChatsView.vue'
+import FindFriendsView from './FindFriendsView.vue'
 import MessageView from './MessageView.vue'
 
 let open = ref(true)
+let showFindFriends = ref(true)
 </script>
 <template>
   <div class="flex">
@@ -29,8 +31,12 @@ let open = ref(true)
         </div>
       </div>
     </div>
-    <ChatsView class="mt-[100px]" />
-
+    <div v-if="showFindFriends">
+      <ChatsView class="mt-[100px]" />
+    </div>
+    <div v-else>
+      <FindFriendsView />
+    </div>
     <div v-if="open">
       <MessageView />
     </div>
@@ -39,7 +45,7 @@ let open = ref(true)
         <div class="grid h-screen place-items-center">
           <div class="text-center">
             <div class="w-full flex items-center justify-center">
-              <img width="375" src="/vite.svg" alt="Chat">
+              <img width="500" src="/w-web-not-loaded-chat.png" alt="Chat">
             </div>
             <div class="text-[32px] text-gray-500 font-light mt-10">WhatsApp Web</div>
             <div class="text-[14px] text-gray-600 mt-2">
