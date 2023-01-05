@@ -6,20 +6,30 @@ import MagnifyIcon from "vue-material-design-icons/Magnify.vue";
 import ChatsView from './ChatsView.vue'
 import FindFriendsView from './FindFriendsView.vue'
 import MessageView from './MessageView.vue'
+import { useUserStore } from '@/store/user-store'
+import { useRouter } from "vue-router";
+const router = useRouter()
 
 let open = ref(true)
 let showFindFriends = ref(true)
+
+const logout = () => {
+  if (confirm('Are you sure you want to logout?')) {
+    useUserStore().logout();
+    router.push('/login')
+  }
+}
 </script>
 <template>
   <div class="flex">
     <div id="Header" class="fixed w-[420px] z-10">
       <div class="bg-[#F0F0F0] w-full flex justify-between items-center px-3 py-2">
         <div class="rounded-full ml-1 w-10 h-10 text-white flex items-center justify-center font-bold bg-red-400">
-          AU
+          <img class="rounded-full" :src="useUserStore().picture || ''" alt="Avatar">
         </div>
         <div class="flex items-center justify-center">
           <AccountGroupIcon fillColor="#515151" class="mr-6" />
-          <DotsVerticalIcon fillColor="#515151" class="cursor-pointer" />
+          <DotsVerticalIcon @click="logout()" fillColor="#515151" class="cursor-pointer" />
         </div>
       </div>
       <div id="Search" class="bg-white w-full shadow-sm px-2 border-b">
